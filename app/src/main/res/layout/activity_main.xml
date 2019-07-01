@@ -11,29 +11,28 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:text="QUIZ APP"
         android:textColor="#000"
-        android:textSize="35sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+        android:textSize="35sp" />
 
     <TextView
+        android:id="@+id/highScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your score : 0"
         android:layout_above="@id/startButton"
-        android:textSize="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:id="@+id/highScore"/>
+        android:text="Your score : 0"
+        android:textSize="20dp" />
 
     <Button
+        android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
         android:layout_centerInParent="true"
-        android:id="@+id/startButton"/>
-
+        android:text="Start" />
 
 
 </RelativeLayout>
