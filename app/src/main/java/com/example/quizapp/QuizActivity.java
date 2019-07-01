@@ -33,5 +33,9 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         ButterKnife.bind(this);
+
+        //to create the database
+        QuizDbHelper dbHelper = new QuizDbHelper(this);
+        questionList = dbHelper.getAllQuestions();
     }
 }
