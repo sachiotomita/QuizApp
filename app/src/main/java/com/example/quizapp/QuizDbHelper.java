@@ -2,10 +2,14 @@ package com.example.quizapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 import com.example.quizapp.QuizConstants.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuizDbHelper extends SQLiteOpenHelper {
 
@@ -76,5 +80,35 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
 
 
+    }
+
+    public List<Question> getAllQuestions(){
+        List<Question> questionList = new ArrayList<>();
+
+        //to reference the database
+        db = getReadableDatabase();
+
+        //to query the database
+        Cursor cursor = db.rawQuery("SELECT * FROM " + QuestionsTable.TABLE_NAME, null);
+
+        //if there is a query to the database
+        if (cursor.moveToFirst()){
+            do {
+
+                Question question = new Question();
+                question.setQuestion(cursor.getString(cursor.getColumnIndex(QuestionsTable.COLUMN_QUESTION)));
+                question.setOption1(cursor.getString(cursor.getColumnIndex(QuestionsTable.COLUMN_OPTION1)));
+                question.setOption2(cursor.getString(cursor.getColumnIndex(QuestionsTable.COLUMN_OPTION2)));
+                question.setOption3(cursor.getString(cursor.getColumnIndex(QuestionsTable.COLUMN_OPTION3)));
+                question.setAnswer(cursor.getInt(cursor.getColumnIndex(QuestionsTable.COLUMN_ANSWER)));
+
+                questionList.add(question);
+
+
+            }while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return questionList;
     }
 }
