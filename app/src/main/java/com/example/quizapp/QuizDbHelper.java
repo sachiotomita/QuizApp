@@ -32,12 +32,25 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 QuestionsTable.COLUMN_ANSWER + " INTEGER" +
                 ")";
 
+        //for executing SQL commands
+        db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
+
+        //to hold the various questions
+        fillQuestionsTable();
+
 
 
     }
-
+    //updates the database when changes are made
     @Override
     public void onUpgrade(SQLiteDatabase dp, int i, int i1) {
 
+        db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
+        onCreate(db);
+
+    }
+
+    private void fillQuestionsTable(){
+        
     }
 }
