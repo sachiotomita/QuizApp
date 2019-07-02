@@ -13,15 +13,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class QuizActivity extends AppCompatActivity {
-    @BindView(R.id.score) TextView score;
-    @BindView(R.id.questionCount) TextView questionCount;
-    @BindView(R.id.countdown) TextView countdown;
-    @BindView(R.id.question) TextView question;
-    @BindView(R.id.radioGroup) RadioGroup radioGroup;
-    @BindView(R.id.button1) RadioButton button1;
-    @BindView(R.id.button2) RadioButton button2;
-    @BindView(R.id.button3) RadioButton button3;
-    @BindView(R.id.submitButton) Button submitButton;
+    @BindView(R.id.score) TextView scorre;
+    @BindView(R.id.questionCount) TextView questionCountt;
+    @BindView(R.id.countdown) TextView countdownn;
+    @BindView(R.id.question) TextView questionn;
+    @BindView(R.id.radioGroup) RadioGroup radioGroupp;
+    @BindView(R.id.button1) RadioButton Button1;
+    @BindView(R.id.button2) RadioButton Button2;
+    @BindView(R.id.button3) RadioButton Button3;
+    @BindView(R.id.submitButton) Button submitButtonn;
 
     private List<Question> questionList;
 
