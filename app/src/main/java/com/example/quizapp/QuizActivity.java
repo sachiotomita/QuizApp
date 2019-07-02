@@ -3,10 +3,12 @@ package com.example.quizapp;
 import android.content.res.ColorStateList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
@@ -54,6 +56,30 @@ public class QuizActivity extends AppCompatActivity {
         Collections.shuffle(questionList);
 
         showNextQuestion();
+
+        submitButtonn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //not answered
+                if (!answered){
+
+                    if (Button1.isChecked() || Button2.isChecked() || Button3.isChecked() ){
+
+                        checkAnswer();
+                    } else {
+                        Toast.makeText(QuizActivity.this, "Please Select an Answer", Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+                }
+                //if question is answered
+                else {
+                    showNextQuestion();
+                }
+            }
+        });
     }
 
     private void showNextQuestion() {
