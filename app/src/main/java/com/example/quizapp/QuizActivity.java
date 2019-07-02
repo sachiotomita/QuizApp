@@ -1,5 +1,6 @@
 package com.example.quizapp;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class QuizActivity extends AppCompatActivity {
+    public static final String EXTRA_SCORE = "extraScore";
+
     @BindView(R.id.score) TextView scorre;
     @BindView(R.id.questionCount) TextView questionCountt;
     @BindView(R.id.countdown) TextView countdownn;
@@ -160,6 +163,9 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void finishQuiz(){
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_SCORE, score);
+        setResult(RESULT_OK, intent);
         finish();
     }
 }
