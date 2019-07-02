@@ -109,6 +109,27 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
+    private void checkAnswer(){
+        answered = true;
+
+        //get selected radio button
+        RadioButton selected = findViewById(radioGroupp.getCheckedRadioButtonId());
+        int answer = radioGroupp.indexOfChild(selected) + 1;
+
+        //correct answer
+        if (answer == currentQuestion.getAnswer()){
+            score += 5;
+            scorre.setText("Score " + score);
+
+        }
+
+        showSolution();
+    }
+
+    private void showSolution(){
+        
+    }
+
     private void finishQuiz(){
         finish();
     }
