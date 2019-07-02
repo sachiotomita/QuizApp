@@ -41,6 +41,8 @@ public class QuizActivity extends AppCompatActivity {
 
     private List<Question> questionList;
 
+    private long backpressedTime;
+
 
 
 
@@ -167,5 +169,16 @@ public class QuizActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backpressedTime + 3000 > System.currentTimeMillis()){
+            finishQuiz();
+
+        }else {
+            Toast.makeText(this, "Press back again to Exit", Toast.LENGTH_SHORT).show();
+        }
+        backpressedTime = System.currentTimeMillis();
     }
 }
