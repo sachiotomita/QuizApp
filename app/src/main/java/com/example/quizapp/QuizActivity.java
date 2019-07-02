@@ -1,6 +1,7 @@
 package com.example.quizapp;
 
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -127,7 +128,27 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void showSolution(){
-        
+        Button1.setTextColor(Color.RED);
+        Button2.setTextColor(Color.RED);
+        Button3.setTextColor(Color.RED);
+
+        switch (currentQuestion.getAnswer()){
+            case 1:
+                Button1.setTextColor(Color.GREEN);
+                questionn.setText("Option 1 is the correct Answer");
+                break;
+
+            case 2:
+                Button2.setTextColor(Color.GREEN);
+                questionn.setText("Option 2 is the correct Answer");
+                break;
+
+            case 3:
+                Button3.setTextColor(Color.GREEN);
+                questionn.setText("Option 3 is the correct Answer");
+                break;
+
+        }
     }
 
     private void finishQuiz(){
