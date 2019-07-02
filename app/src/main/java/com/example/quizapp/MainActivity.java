@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     private void startQuiz() {
@@ -58,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //to get the score from shared preferences
+    private void loadHighScore(){
+        SharedPreferences preferences = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
+        highscore = preferences.getInt(KEY_HIGHSCORE, 0);
+        highSre.setText("Your Total Score: " + highscore);
+
+
+    }
+
     private void updateHighScore(int newScore) {
         highscore = newScore;
         highSre.setText("Your Total Score: " + highscore);
@@ -70,12 +81,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //to get the score from shared preferences
-    private void loadHighScore(){
-        SharedPreferences preferences = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
-        highscore = preferences.getInt(KEY_HIGHSCORE, 0);
-        highSre.setText("Your Toatal Score: " + highscore);
 
-
-    }
 }
