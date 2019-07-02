@@ -149,6 +149,14 @@ public class QuizActivity extends AppCompatActivity {
                 break;
 
         }
+        //if there is another question
+        if (questionCounter < questionTotal) {
+
+            submitButtonn.setText("Next Question");
+
+        } else {
+            submitButtonn.setText("Finish Quiz");
+        }
     }
 
     private void finishQuiz(){
