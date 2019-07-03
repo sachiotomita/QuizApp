@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Score: 0"
-        android:textColor="#000" />
+        android:textColor="#000"
+        android:freezesText="true"/>
 
     <TextView
         android:id="@+id/questionCount"
@@ -21,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/score"
         android:text="Question 1/x"
-        android:textColor="#000" />
+        android:textColor="#000"
+        android:freezesText="true"/>
 
     <TextView
         android:id="@+id/countdown"
@@ -31,7 +33,8 @@
         android:layout_alignParentRight="true"
         android:text="00:30"
         android:textColor="#000"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:freezesText="true"/>
 
     <TextView
         android:id="@+id/question"
@@ -42,7 +45,8 @@
         android:text="Here will be the Question"
         android:textAlignment="center"
         android:textColor="#000"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:freezesText="true"/>
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -54,19 +58,22 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Option 1" />
+            android:text="Option 1"
+            android:freezesText="true"/>
 
         <RadioButton
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Option 2" />
+            android:text="Option 2"
+            android:freezesText="true"/>
 
         <RadioButton
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Option 3" />
+            android:text="Option 3"
+            android:freezesText="true"/>
     </RadioGroup>
 
     <Button
@@ -75,6 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/radioGroup"
         android:paddingTop="16dp"
-        android:text="Submit" />
+        android:text="Submit"
+        android:freezesText="true"/>
 
 </RelativeLayout>
