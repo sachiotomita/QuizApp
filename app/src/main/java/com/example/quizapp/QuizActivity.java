@@ -72,14 +72,37 @@ public class QuizActivity extends AppCompatActivity {
         texxtColorDefault = Button1.getTextColors();
         textColorDefaultcd = countdownn.getTextColors();
 
-        //to create the database
-        QuizDbHelper dbHelper = new QuizDbHelper(this);
-        questionList = dbHelper.getAllQuestions();
+        //if instance is not saved ie. screen is not rotated
+        if (savedInstanceState == null) {
 
-        questionTotal = questionList.size();
-        Collections.shuffle(questionList);
+            //to create the database
+            QuizDbHelper dbHelper = new QuizDbHelper(this);
+            questionList = dbHelper.getAllQuestions();
 
-        showNextQuestion();
+            questionTotal = questionList.size();
+            Collections.shuffle(questionList);
+
+            showNextQuestion();
+
+        } else {
+            questionList = savedInstanceState.getParcelableArrayList(KEY_QUESTION_LIST);
+            questionTotal = questionList.size();
+            questionCounter = savedInstanceState.getInt(KEY_QUESTION_COUNT);
+            currentQuestion = questionList.get(questionCounter - 1);
+            Score  = savedInstanceState.getInt(KEY_SCORE);
+            timeLeft = savedInstanceState.getLong(KEY_TIME_LEFT);
+            answered = savedInstanceState.getBoolean(KEY_ANSWERED);
+
+            //if question is not answered start countdown
+            if (!answered) {
+                startCountdown();
+
+                //to regain the current color of countdown and radiobuttons
+            } else {
+                updateCountDownText();
+                showSolution();
+            }
+        }
 
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
