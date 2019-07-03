@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -23,6 +24,14 @@ import butterknife.ButterKnife;
 public class QuizActivity extends AppCompatActivity {
     public static final String EXTRA_SCORE = "extraScore";
     private static final long COUNTDOWN_TIME = 30000;
+
+    //values to save when screen is rotated
+    private static final String KEY_SCORE = "keyScore";
+    private static final String KEY_QUESTION_COUNT = "keyQuestionCount";
+    private static final String KEY_TIME_LEFT = "keyTimeLeft";
+    private static final String KEY_ANSWERED = "keyAnswered";
+    private static final String KEY_QUESTION_LIST = "keyQuestionList";
+
 
     @BindView(R.id.score) TextView scorre;
     @BindView(R.id.questionCount) TextView questionCountt;
@@ -47,7 +56,7 @@ public class QuizActivity extends AppCompatActivity {
     private int Score;
     private boolean answered;
 
-    private List<Question> questionList;
+    private ArrayList<Question> questionList;
 
     private long backPressedTime;
 
@@ -241,5 +250,18 @@ public class QuizActivity extends AppCompatActivity {
         if (countDownTimer != null) {
             countDownTimer.cancel();
         }
+    }
+
+    //on screen rotation
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt(KEY_SCORE, Score);
+        outState.putInt(KEY_QUESTION_COUNT, questionCounter);
+        outState.putLong(KEY_TIME_LEFT, timeLeft);
+        outState.putBoolean(KEY_ANSWERED, answered);
+        outState.putParcelableArrayList(KEY_QUESTION_LIST, questionList);
+
     }
 }
