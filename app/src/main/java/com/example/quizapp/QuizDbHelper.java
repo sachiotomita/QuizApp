@@ -56,15 +56,15 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable(){
-        Question q1 = new Question("A is correct", "A", "B", "C", 1);
+        Question q1 = new Question("Which of the following is not a way to store data in android?", "Memory managaer", "Firebase", "Shared Preferences", 1);
         addQuestion(q1);
-        Question q2 = new Question("B is correct", "A", "B", "C", 2);
+        Question q2 = new Question("Which of the following is not a HHTP Client method", "Retrofit", "Postman", "OKHTTP", 2);
         addQuestion(q2);
-        Question q3 = new Question("C is correct", "A", "B", "C", 3);
+        Question q3 = new Question("Which tool is used to pass data from one activity to another", "Toast", "Button", "Intent", 3);
         addQuestion(q3);
-        Question q4 = new Question("A is correct again", "A", "B", "C", 1);
+        Question q4 = new Question("Which of the following is not in the Android LifeCycle?", "onRepause()", "onResume()", "onRestart()", 1);
         addQuestion(q4);
-        Question q5 = new Question("C is correct again", "A", "B", "C", 3);
+        Question q5 = new Question("Which of the following is not an example of a context?", "Application Context", "Class Context", "Activity Context", 3);
         addQuestion(q5);
     }
 
