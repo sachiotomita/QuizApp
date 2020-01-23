@@ -18,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
     private int highscore;
 
 
-    @BindView(R.id.startButton) Button start;
-    @BindView(R.id.highScore) TextView highSre;
+    @BindView(R.id.startButton)
+    Button start;
+    @BindView(R.id.highScore)
+    TextView highSre;
 
 
     @Override
@@ -49,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CODE_QUIZ){
-            if (resultCode == RESULT_OK){
+        if (requestCode == REQUEST_CODE_QUIZ) {
+            if (resultCode == RESULT_OK) {
                 int score = data.getIntExtra(QuizActivity.EXTRA_SCORE, 0);
 
                 if (score > highscore) {
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //to get the score from shared preferences
-    private void loadHighScore(){
+    private void loadHighScore() {
         SharedPreferences preferences = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
         highscore = preferences.getInt(KEY_HIGHSCORE, 0);
         highSre.setText("Your Total Score: " + highscore);

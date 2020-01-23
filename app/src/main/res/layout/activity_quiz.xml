@@ -20,7 +20,7 @@
         android:id="@+id/questionCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/score"
+        android:layout_below="@+id/score"
         android:text="Question 1/x"
         android:textColor="#000"
         android:freezesText="true"/>
@@ -40,7 +40,7 @@
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/radioGroup"
+        android:layout_above="@+id/radioGroup"
         android:paddingBottom="16dp"
         android:text="Here will be the Question"
         android:textAlignment="center"
@@ -80,7 +80,7 @@
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/radioGroup"
+        android:layout_below="@+id/radioGroup"
         android:paddingTop="16dp"
         android:text="Submit"
         android:freezesText="true"/>
